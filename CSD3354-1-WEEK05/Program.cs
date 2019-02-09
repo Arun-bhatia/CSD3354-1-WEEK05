@@ -25,16 +25,26 @@ namespace CSD3354_1_WEEK05
                 next.Print();
             }
         }
+        public void AddFloor(String floor)
+        {
+            if (next == null)
+            {
+                next = new Node(floor);
+            }
+            else
+            {
+                next.AddFloor(floor);
+            }
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Node myNode = new Node("Ground Floor");
-            myNode.next = new Node("First Floor");
-            myNode.next.next = new Node("Second Floor");
-
-            myNode.Print();
+            Node newfloor = new Node("Ground Floor");
+            newfloor.AddFloor("First Floor");
+            newfloor.AddFloor("Second floor");
+            newfloor.Print();
         }
     }
 }
